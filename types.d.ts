@@ -36,3 +36,7 @@ type MentalIssueCardProps = {
   imageSrc: string | StaticImageData;
   href: string;
 };
+
+type ConversationProps = {
+  username: string;
+}

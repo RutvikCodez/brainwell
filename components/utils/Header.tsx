@@ -3,10 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import CustomButton from '../custom/button'
 import MobileHeader from './MobileHeader'
-import { Button } from '../ui/button'
-import { signIn } from 'next-auth/react'
-// import { signIn } from '@/auth'
-
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -37,19 +33,7 @@ const Header = () => {
       >
         BrainWell
       </Link>
-      {/* <CustomButton value="Login" link="/sign-in" /> */}
-      <Button
-        // style={{ backgroundColor: backgoundColor || "#FDF2E9" }}
-        className="text-green-800 font-semibold px-12 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:bg-green-100 transition-all duration-300 max-md:hidden focus:outline-none focus:ring-2 focus:ring-green-600 w-fit"
-        aria-label="Login"
-        onClick={async () => {
-          // 'use server'
-          await signIn('google')
-        }}
-      >
-        {/* <Link href={link}>{value}</Link> */}
-        Login
-      </Button>
+      <CustomButton value="Login" link="/sign-in" />
       <MobileHeader />
     </header>
   )
