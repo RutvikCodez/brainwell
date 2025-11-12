@@ -2,7 +2,6 @@ import GoalsAndProgress from '@/components/dashboard/GoalsAndProgress'
 import GreetingSection from '@/components/dashboard/GreetingSection'
 import MoodAndSentiment from '@/components/dashboard/MoodAndSentiment'
 import MoodProgressChart from '@/components/dashboard/MoodProgressChart'
-import QuoteOfTheDay from '@/components/dashboard/QuoteOfTheDay'
 import RecommendationsGrid from '@/components/dashboard/RecommendationsGrid'
 import SessionSummary from '@/components/dashboard/SessionSummary'
 import VoiceJournal from '@/components/dashboard/VoiceJournal'
@@ -19,19 +18,18 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-8">
-      <main className="max-w-7xl mx-auto flex flex-col gap-6">
-        <GreetingSection image={session.user.image || ''} username={session.user.name || ''} />
+    <main className='min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-8'>
+      <div className='max-w-7xl mx-auto grid grid-cols-2 gap-6 w-full'>
+        <GreetingSection image={session.user.image || ''} username={session.user.name || ''}  />
         <SessionSummary />
         <MoodAndSentiment />
+        <GoalsAndProgress />
         <MoodProgressChart />
         <VoiceJournal />
-        <RecommendationsGrid />
-        <GoalsAndProgress />
-        <WellnessInsights />
         <WellnessChecklist />
-        <QuoteOfTheDay />
-      </main>
-    </div>
+        <RecommendationsGrid />
+        <WellnessInsights />
+      </div>
+    </main>
   )
 }

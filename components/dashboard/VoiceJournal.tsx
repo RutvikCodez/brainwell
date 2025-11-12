@@ -1,24 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Play, MessageSquare } from 'lucide-react'
-
-const journalEntries = [
-  {
-    id: 1,
-    date: 'Today, 2:30 PM',
-    summary: 'Discussed work-life balance and stress management techniques.',
-  },
-  {
-    id: 2,
-    date: 'Yesterday, 3:15 PM',
-    summary: 'Explored mindfulness practices and breathing exercises for anxiety.',
-  },
-  {
-    id: 3,
-    date: '2 days ago, 2:00 PM',
-    summary: 'Worked on processing emotions related to recent life changes.',
-  },
-]
+import { journalEntries } from '@/constant'
 
 const VoiceJournal = () => {
   return (
@@ -28,9 +11,9 @@ const VoiceJournal = () => {
         <CardDescription className="text-[#1F3B2C]/70">Last 3 therapy sessions</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        {journalEntries.map((entry) => (
+        {journalEntries.map((entry, index) => (
           <div
-            key={entry.id}
+            key={index}
             className="flex items-start gap-4 p-4 rounded-lg bg-[#FDF2E9] border border-[#E6F1F0] hover:border-[#1F3B2C] transition-all"
           >
             <div className="flex-1 min-w-0">

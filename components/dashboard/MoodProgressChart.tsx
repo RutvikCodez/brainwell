@@ -12,22 +12,13 @@ import {
   AreaChart,
   Area,
 } from 'recharts'
-
-const weekData = [
-  { date: 'Mon', mood: 5.2 },
-  { date: 'Tue', mood: 5.8 },
-  { date: 'Wed', mood: 6.1 },
-  { date: 'Thu', mood: 6.5 },
-  { date: 'Fri', mood: 7.0 },
-  { date: 'Sat', mood: 6.8 },
-  { date: 'Sun', mood: 7.5 },
-]
+import { stats, weekData } from '@/constant'
 
 const MoodProgressChart = () => {
   const [view, setView] = useState<'week' | 'month' | 'year'>('week')
 
   return (
-    <Card className="bg-white border border-[#E6F1F0] shadow-lg">
+    <Card className="bg-white border border-[#E6F1F0] shadow-lg col-span-2">
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle className="text-[#1F3B2C]">Mood Over Time</CardTitle>
@@ -77,18 +68,18 @@ const MoodProgressChart = () => {
         </ResponsiveContainer>
 
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-[#E6F1F0] rounded-lg p-4 border border-[#1F3B2C]/10 text-center">
-            <p className="text-sm text-[#1F3B2C]/70">Overall Improvement</p>
-            <p className="text-2xl font-bold text-[#1F3B2C]">+12%</p>
-          </div>
-          <div className="bg-[#FDF2E9] rounded-lg p-4 border border-[#1F3B2C]/10 text-center">
-            <p className="text-sm text-[#1F3B2C]/70">Stress Down</p>
-            <p className="text-2xl font-bold text-[#1F3B2C]">-6%</p>
-          </div>
-          <div className="bg-[#1F3B2C] rounded-lg p-4 border border-[#1F3B2C]/10 text-center">
-            <p className="text-sm text-[#FDF2E9]">Avg. Score</p>
-            <p className="text-2xl font-bold text-[#FDF2E9]">6.7</p>
-          </div>
+          {stats.map(({ bg, label, text, value }, index) => (
+            <div
+              key={index}
+              className="rounded-lg p-4 border border-[#1F3B2C]/10 text-center"
+              style={{ backgroundColor: bg, color: text }}
+            >
+              <p className="text-sm" style={{ color: text }}>
+                {label}
+              </p>
+              <p className="text-2xl font-bold text-[#1F3B2C]">{value}</p>
+            </div>
+          ))}
         </div>
       </CardContent>
     </Card>

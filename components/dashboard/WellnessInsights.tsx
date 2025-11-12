@@ -1,17 +1,11 @@
-"use client"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
-
-const topicData = [
-  { name: "Stress", value: 42 },
-  { name: "Focus", value: 28 },
-  { name: "Sleep", value: 18 },
-  { name: "Other", value: 12 },
-]
+'use client'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { topicData } from '@/constant'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const WellnessInsights = () => {
   return (
-    <Card className="bg-white border border-[#E6F1F0] shadow-lg">
+    <Card className="bg-white border border-[#E6F1F0] shadow-lg col-span-2  ">
       <CardHeader>
         <CardTitle className="text-[#1F3B2C]">Wellness Insights</CardTitle>
         <CardDescription className="text-[#1F3B2C]/70">Your wellness analytics</CardDescription>
@@ -40,7 +34,7 @@ const WellnessInsights = () => {
               <CartesianGrid strokeDasharray="3 3" stroke="#E6F1F0" />
               <XAxis dataKey="name" stroke="#1F3B2C" />
               <YAxis stroke="#1F3B2C" />
-              <Tooltip contentStyle={{ backgroundColor: "#FDF2E9", border: "1px solid #1F3B2C" }} />
+              <Tooltip contentStyle={{ backgroundColor: '#FDF2E9', border: '1px solid #1F3B2C' }} />
               <Bar dataKey="value" fill="#1F3B2C" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>

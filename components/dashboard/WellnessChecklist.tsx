@@ -4,13 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { CheckCircle2 } from 'lucide-react'
-
-const checklist = [
-  { id: 1, task: 'Meditate for 5 min' },
-  { id: 2, task: 'Journal one positive thought' },
-  { id: 3, task: 'Drink water' },
-  { id: 4, task: 'Talk to AI again' },
-]
+import { checklist } from '@/constant'
 
 const WellnessChecklist = () => {
   const [completed, setCompleted] = useState<number[]>([1, 3])

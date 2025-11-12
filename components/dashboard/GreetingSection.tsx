@@ -1,13 +1,8 @@
 import Image from "next/image"
 
-interface greetingsProps {
-  image: string
-  username: string
-}
-
 const GreetingSection = ({ image, username }: greetingsProps) => {
   return (
-    <div className="bg-white rounded-xl p-8 border border-border shadow-sm animate-fadeIn">
+    <div className="bg-white rounded-xl p-8 border border-border shadow-sm animate-fadeIn col-span-2">
       <div className="flex items-start justify-between gap-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">

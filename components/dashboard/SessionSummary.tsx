@@ -1,13 +1,12 @@
-import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { Button } from '../ui/button'
 import { MessageSquare, Play } from 'lucide-react'
 
 const SessionSummary = () => {
   return (
-    <Card className="border-lavender-200 bg-white/80 backdrop-blur-sm shadow-lg">
+    <Card className="border-lavender-200 bg-white/80 backdrop-blur-sm shadow-lg col-span-2">
       <CardHeader>
-        <CardTitle className="text-slate-900">Your First Therapy Session Summary</CardTitle>
+        <CardTitle className="text-[#1F3B2C]">Your First Therapy Session Summary</CardTitle>
         <CardDescription>15 minutes • Today at 2:30 PM</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
@@ -22,7 +21,7 @@ const SessionSummary = () => {
 
         <div className="flex items-center gap-4 p-4 bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] rounded-lg border border-slate-200">
           <div className="flex-1">
-            <p className="font-semibold text-slate-900">Today&apos;s Mood</p>
+            <p className="font-semibold text-[#1F3B2C]">Today&apos;s Mood</p>
             <p className="text-sm text-slate-600">Calm & Motivated</p>
           </div>
         </div>
