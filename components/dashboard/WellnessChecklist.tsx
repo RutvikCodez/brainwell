@@ -47,7 +47,7 @@ const WellnessChecklist = () => {
               {item.task}
             </span>
             {completed.includes(item.id) && (
-              <CheckCircle2 className="w-5 h-5 text-[#1F3B2C] flex-shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[#1F3B2C] shrink-0" />
             )}
           </div>
         ))}

@@ -2,7 +2,7 @@ import SignIn from '@/components/auth/SignIn'
 
 export default function SignInPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] px-4 animate-fadeIn">
+    <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] px-4 animate-fadeIn">
       <div className="relative z-10 w-full max-w-md">
         <div className="rounded-2xl border border-[#1F3B2C]/10 bg-[#FDF2E9]/90 p-8 shadow-2xl backdrop-blur-xl flex flex-col gap-6">
           <div className="flex flex-col gap-8">

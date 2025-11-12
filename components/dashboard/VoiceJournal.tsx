@@ -37,7 +37,7 @@ const VoiceJournal = () => {
               <p className="text-sm font-medium text-[#1F3B2C]/70">{entry.date}</p>
               <p className="text-[#1F3B2C] mt-1">{entry.summary}</p>
             </div>
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex gap-2 shrink-0">
               <Button
                 size="sm"
                 variant="ghost"

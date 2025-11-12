@@ -19,7 +19,7 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0]bg-[#] p-8">
+    <div className="min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-8">
       <main className="max-w-7xl mx-auto flex flex-col gap-6">
         <GreetingSection image={session.user.image || ''} username={session.user.name || ''} />
         <SessionSummary />

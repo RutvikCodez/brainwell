@@ -1,6 +1,4 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Music, Zap, MessageCircle, Sun, Moon, BookOpen } from 'lucide-react'
 
 const recommendations = [
   {
