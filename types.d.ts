@@ -1,47 +1,67 @@
 type buttonPropsType = {
-  value: string;
-  link: string;
-  className?: string;
-  backgoundColor?: string;
-};
+  value: string
+  link: string
+  className?: string
+  backgoundColor?: string
+}
 
 type tittleDescPropsType = {
-  title: string;
-  description: string;
-  titleTextColor?: string;
-  descriptionTextColor?: string;
-  className?: string;
-};
+  title: string
+  description: string
+  titleTextColor?: string
+  descriptionTextColor?: string
+  className?: string
+}
 
 type featureCardProps = {
-  title: string;
-  description: string;
-};
+  title: string
+  description: string
+}
 
 type ServiceCardPropsType = {
-  title: string;
-  subtitle: string;
-  Icon: SvgComponent;
-};
+  title: string
+  subtitle: string
+  Icon: SvgComponent
+}
 
 type JourneyCardProps = {
-  step: string;
-  title: string;
-  description: string;
-};
+  step: string
+  title: string
+  description: string
+}
 
 type MentalIssueCardProps = {
-  title: string;
-  description: string;
-  imageSrc: string | StaticImageData;
-  href: string;
-};
+  title: string
+  description: string
+  imageSrc: string | StaticImageData
+  href: string
+}
 
 type ConversationProps = {
-  username: string;
+  username: string
 }
 
 type greetingsProps = {
-  username: string;
-  image: string;
+  username: string
+  image: string
+}
+
+type cardWrapperProps = {
+  title: string
+  desc: string
+  children: React.ReactNode
+  cns?: {
+    card?: string
+    cardHeader?: string
+    cardTitle?: string
+    cardDesc?: string
+    cardContent?: string
+  }
+}
+
+type progresProps = {
+  label: string
+  value: string
+  bg: string
+  text: string
 }

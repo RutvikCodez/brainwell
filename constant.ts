@@ -287,3 +287,24 @@ export const topicData = [
   { name: "Sleep", value: 18 },
   { name: "Other", value: 12 },
 ]
+
+export const progress = [
+  {
+    label: 'Avg. Session Duration',
+    value: '7.2 min',
+    bg: '#FDF2E9',
+    text: '#1F3B2C',
+  },
+  {
+    label: 'Most Discussed Topic',
+    value: 'Stress (42% of sessions)',
+    bg: '#FDF2E9',
+    text: '#1F3B2C',
+  },
+  {
+    label: 'Top Words Used',
+    value: 'Calm, Focus, Relax',
+    bg: '#FDF2E9',
+    text: '#1F3B2C',
+  },
+]
