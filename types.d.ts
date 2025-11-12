@@ -38,6 +38,7 @@ type MentalIssueCardProps = {
 }
 
 type ConversationProps = {
+  userId: string
   username: string
 }
 

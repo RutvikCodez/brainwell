@@ -13,7 +13,7 @@ const Page = async () => {
         <h1 className="text-6xl font-extrabold text-gray-900 tracking-tight leading-tight drop-shadow-md max-xl:text-5xl max-md:text-3xl text-center">
           General question
         </h1>
-        <Conversation username={user.name} />
+        <Conversation username={user.name} userId={user._id.toString()} />
       </section>
     </main>
   )
