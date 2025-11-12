@@ -20,7 +20,7 @@ const Header = () => {
       role="banner"
       className={`fixed top-0 left-0 w-full z-50 px-8 py-4 flex items-center justify-between transition-colors duration-700 ease-in-out ${
         scrolled
-          ? 'bg-gradient-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] shadow-xl border-b border-green-300'
+          ? 'bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] shadow-xl border-b border-green-300'
           : 'bg-transparent'
       }`}
     >

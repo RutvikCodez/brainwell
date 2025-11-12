@@ -7,7 +7,7 @@ const Mentalissues = () => {
   return (
     <section
       id="mental-issues"
-      className="xl:max-w-7xl w-full mx-auto bg-gradient-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-12 rounded-3xl flex flex-col gap-10 shadow-xl"
+      className="xl:max-w-7xl w-full mx-auto bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-12 rounded-3xl flex flex-col gap-10 shadow-xl"
     >
       <div className="text-center flex flex-col gap-2">
         <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 tracking-tight relative inline-block">

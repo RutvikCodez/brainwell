@@ -40,3 +40,8 @@ type MentalIssueCardProps = {
 type ConversationProps = {
   username: string;
 }
+
+type greetingsProps = {
+  username: string;
+  image: string;
+}

@@ -8,7 +8,7 @@ import JourneyCard from "./JourneyCard";
 
 const Journey = () => {
   return (
-    <section className="max-w-7xl mx-auto w-full px-6 py-12 md:px-12 md:py-20 bg-gradient-to-br from-[#1F3B2C] to-[#264d3a] text-white rounded-3xl shadow-2xl flex flex-col gap-12">
+    <section className="max-w-7xl mx-auto w-full px-6 py-12 md:px-12 md:py-20 bg-linear-to-br from-[#1F3B2C] to-[#264d3a] text-white rounded-3xl shadow-2xl flex flex-col gap-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <TitleDescription
           description="A guided flow to understand you better and build a tailored support

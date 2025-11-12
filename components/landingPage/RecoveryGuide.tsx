@@ -39,7 +39,7 @@ const RecoveryGuide = () => {
         <CustomButton link="/sign-in" value="Get Started" />
       </div>
 
-      <div className="relative w-full h-full aspect-square bg-gradient-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-4 rounded-xl shadow-inner border border-gray-200">
+      <div className="relative w-full h-full aspect-square bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-4 rounded-xl shadow-inner border border-gray-200">
         <Image
           src={RecoveryGuideImage}
           alt="Recovery Journey"
