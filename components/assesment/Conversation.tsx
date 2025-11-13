@@ -35,7 +35,7 @@ export function Conversation({ username, userId }: ConversationProps) {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true })
       await conversation.startSession({
-        agentId: 'agent_7901k6a4b0qbec69r7gt7bww73y8',
+        agentId: process.env.ELEVENLABS_ASSISTANT_ID!,
         connectionType: 'webrtc',
       })
     } catch (error) {

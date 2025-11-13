@@ -13,37 +13,76 @@ export async function POST(req: Request) {
 
     const durationMinutes = (new Date(endTime).getTime() - new Date(startTime).getTime()) / 60000
 
-    // 🧩 AI Summary
-    const text = transcript.map((t: { role: string; text: string }) => `${t.role}: ${t.text}`).join('\n')
+    // 🧩 AI Summary (with Hindi input → English output)
+    const text = transcript
+      .map((t: { role: string; text: string }) => `${t.role}: ${t.text}`)
+      .join('\n')
+
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
     const aiRes = await model.generateContent(`
-  Analyze the below conversation:
-  ${text}
+You are a helpful AI mental wellness assistant analyzing a therapy conversation.
 
-  Return a JSON with:
-  {
-    "todayMood": "single descriptive word of user's mood (like calm, tired, happy, anxious)",
-    "moodPercentages": {
-      "positive": number (0-100),
-      "neutral": number (0-100),
-      "negative": number (0-100)
+The entire conversation below may be in **Hindi or mixed language**, but your output must be **100% in English only**.  
+Analyze the conversation carefully and generate a **JSON response only**, following this structure strictly:
+
+{
+  "todayMood": "a single descriptive English word for user's mood (e.g., calm, anxious, happy, lonely, hopeful)",
+  "moodPercentages": {
+    "positive": number (0-100),
+    "neutral": number (0-100),
+    "negative": number (0-100)
+  },
+  "summary": "a short 3–4 sentence English summary of the conversation",
+  "emotionScore": number (0–10),
+  "improvementPercent": number (0–100),
+  "stressDownPercent": number (0–100),
+  "wellnessChecklist": [
+    "short English actionable wellness tip 1",
+    "short English actionable wellness tip 2",
+    "short English actionable wellness tip 3"
+  ],
+  "aiRecommendations": [
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
     },
-    "summary": "short paragraph of the session",
-    "emotionScore": number(0-10),
-    "improvementPercent": number,
-    "stressDownPercent": number,
-    "wellnessChecklist": [string, string, string],
-    "aiRecommendations": [{title, description}],
-    "mostDiscussedTopic": string,
-    "topWords": [string],
-    "topicDistribution": [
-      {"topic": "Relationships", "percentage": 40},
-      {"topic": "Work", "percentage": 30},
-      {"topic": "Health", "percentage": 20},
-      {"topic": "Self-Growth", "percentage": 10}
-    ]
-  }
-`)
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
+    },
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
+    },
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
+    },
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
+    },
+    {
+      "title": "short English title of recommendation",
+      "description": "1–2 sentence English explanation"
+    }
+  ],
+  "mostDiscussedTopic": "main English topic discussed (e.g., family, work, health, stress)",
+  "topWords": [ "top English keywords from conversation" ],
+  "topicDistribution": [
+    {"topic": "Relationships", "percentage": 40},
+    {"topic": "Work", "percentage": 30},
+    {"topic": "Health", "percentage": 20},
+    {"topic": "Self-Growth", "percentage": 10}
+  ]
+}
+
+Now, analyze and respond in valid JSON **only**, without any extra text or formatting.
+
+Conversation:
+${text}
+    `)
+
     let textResponse = aiRes.response.text()
     textResponse = textResponse.replace(/```json|```/g, '').trim()
     const result = JSON.parse(textResponse)
@@ -52,7 +91,6 @@ export async function POST(req: Request) {
     const previousSessions = await Session.find({ userId })
     const sessionCount = previousSessions.length + 1
 
-    // 🧮 Compute streak & averages
     const streak = sessionCount > 1 ? user.streak + 1 : 1
     const avgLast7Score =
       previousSessions.slice(-7).reduce((acc, s) => acc + (s.emotionScore || 0), 0) / 7 || 0
