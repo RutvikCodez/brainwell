@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 
 export function Conversation({ username, userId }: ConversationProps) {
   const [transcript, setTranscript] = useState<Array<{ role: string; text: string }>>([
-    { role: 'system', text: 'Press Call to talk with Mindwell' },
+    { role: 'system', text: 'Press Call to talk with Brainwell' },
   ])
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [startTime, setStartTime] = useState<Date | null>(null)
@@ -73,7 +73,7 @@ export function Conversation({ username, userId }: ConversationProps) {
                 <span className="absolute w-5/6 h-5/6 rounded-full bg-[#FDF2E9] opacity-20 animate-ping" />
               )}
             </div>
-            <h3 className="text-[#1F3B2C] text-xl font-semibold text-center">Mindwell</h3>
+            <h3 className="text-[#1F3B2C] text-xl font-semibold text-center">Brainwell</h3>
           </Card>
           <Card
             className="flex flex-col items-center justify-center gap-4 p-8 rounded-xl border-0 shadow-lg 
