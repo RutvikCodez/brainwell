@@ -7,7 +7,7 @@ const GoalsAndProgress = () => {
     <CardWrapper
       title="Your Goals"
       desc="Progress towards wellness"
-      cns={{ cardContent: 'flex flex-col gap-6' }}
+      cns={{ cardContent: 'flex flex-col gap-6', card: 'max-md:col-span-2' }}
     >
       {goals.map((goal, index) => (
         <div key={index} className="flex flex-col gap-2">

@@ -6,7 +6,7 @@ const VoiceJournal = ({ data }: { data: journalEntries[] }) => {
     <CardWrapper
       title="Your Voice Journal"
       desc="Last 3 therapy sessions"
-      cns={{ cardContent: 'flex flex-col gap-4' }}
+      cns={{ cardContent: 'flex flex-col gap-4', card: 'max-md:col-span-2' }}
     >
       {data.length > 0 ? (
         data.map((entry, index) => (

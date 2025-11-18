@@ -8,7 +8,7 @@ import { Button } from '../ui/button'
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
-export function Conversation({ username, userId }: ConversationProps) {
+export function Conversation({ username, userId, agentId }: ConversationProps) {
   const [transcript, setTranscript] = useState<Array<{ role: string; text: string }>>([
     { role: 'system', text: 'Press Call to talk with Brainwell' },
   ])
@@ -31,17 +31,17 @@ export function Conversation({ username, userId }: ConversationProps) {
     onError: (error) => console.error('Error:', error),
   })
 
-  const startConversation = useCallback(async () => {
+  const startConversation = async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true })
       await conversation.startSession({
-        agentId: process.env.ELEVENLABS_ASSISTANT_ID!,
+        agentId,
         connectionType: 'webrtc',
       })
     } catch (error) {
       console.error('Failed to start conversation:', error)
     }
-  }, [conversation])
+  }
 
   const stopConversation = useCallback(async () => {
     await conversation.endSession()

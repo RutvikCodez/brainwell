@@ -17,6 +17,7 @@ const WellnessChecklist = ({ checklist }: { checklist: string[] }) => {
       desc={`${completed.length} of ${checklist.length} completed`}
       cns={{
         cardContent: 'flex flex-col gap-3',
+        card: 'max-md:col-span-2',
       }}
     >
       {checklist.map((item, index) => (

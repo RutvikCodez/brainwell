@@ -74,7 +74,13 @@ Analyze the conversation carefully and generate a **JSON response only**, follow
     {"topic": "Work", "percentage": 30},
     {"topic": "Health", "percentage": 20},
     {"topic": "Self-Growth", "percentage": 10}
-  ]
+  ],
+  "goals": [
+  { "title": "short goal title", "progress": number (0–100) },
+  { "title": "short goal title", "progress": number (0–100) },
+  { "title": "short goal title", "progress": number (0–100) },
+  { "title": "short goal title", "progress": number (0–100) }
+]
 }
 
 Now, analyze and respond in valid JSON **only**, without any extra text or formatting.

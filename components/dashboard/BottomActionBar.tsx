@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Button } from '@/components/ui/button'
 import { Mic, LogOut } from 'lucide-react'
@@ -13,7 +13,7 @@ const BottomActionBar = () => {
     <CardWrapper
       title="Quick Actions"
       desc="Navigate easily through your tools"
-      cns={{ cardContent: 'flex flex-col w-full gap-4' }}
+      cns={{ cardContent: 'flex flex-col w-full gap-4', card: 'max-md:col-span-2' }}
     >
       {/* Start New Session */}
       <Button

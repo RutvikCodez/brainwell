@@ -6,11 +6,11 @@ import { signIn } from 'next-auth/react'
 
 const SignIn = () => {
   const handleGoogleSignIn = async () => {
-    await signIn('google', { callbackUrl: '/assesment' })
+    await signIn('google', { callbackUrl: '/dashboard' })
   }
 
   const handleGitHubSignIn = async () => {
-    await signIn('github', { callbackUrl: '/assesment' })
+    await signIn('github', { callbackUrl: '/dashboard' })
   }
 
   return (

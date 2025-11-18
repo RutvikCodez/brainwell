@@ -37,7 +37,7 @@ const MoodProgressChart = ({
         </div>
       )}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
         {stats.map((item, index) => (
           <Progress key={index} {...item} />
         ))}

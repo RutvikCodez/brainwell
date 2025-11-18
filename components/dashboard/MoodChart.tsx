@@ -1,8 +1,13 @@
 "use client"
-import { emotionData } from '@/constant'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 
-const MoodChart = () => {
+type  emotionDataprops =  {
+    name: string;
+    value: number;
+    color: string;
+}[]
+
+const MoodChart = ( {emotionData}: {emotionData: emotionDataprops}) => {
   return (
     <ResponsiveContainer width="100%" height={250}>
       <PieChart>

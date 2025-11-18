@@ -11,9 +11,9 @@ const MoodAndSentiment = ({ negative, neutral, positive }: MoodPercentages) => {
     <CardWrapper
       title="Emotion Breakdown"
       desc="Session sentiment analysis"
-      cns={{ cardContent: 'flex flex-col gap-4' }}
+      cns={{ cardContent: 'flex flex-col gap-4', card: 'max-md:col-span-2' }}
     >
-      <MoodChart />
+      <MoodChart emotionData={emotionData} />
       <div className="flex w-full justify-between gap-2">
         {emotionData.map((item) => (
           <div key={item.name} className="flex items-center gap-2">

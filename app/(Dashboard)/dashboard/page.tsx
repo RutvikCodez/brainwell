@@ -9,6 +9,7 @@ import VoiceJournal from '@/components/dashboard/VoiceJournal'
 import WellnessChecklist from '@/components/dashboard/WellnessChecklist'
 import WellnessInsights from '@/components/dashboard/WellnessInsights'
 import { getSignInUser } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 
 export default async function DashboardPage() {
   const user = await getSignInUser()
@@ -16,6 +17,14 @@ export default async function DashboardPage() {
 
   const getSession = await fetch(`${process.env.NEXTAUTH_URL}/api/session/${user?._id.toString()}`)
   const getSessionData: SessionResponse = await getSession.json()
+  if (!getSessionData.session) {
+    return redirect('/assesment')
+  }
+
+  if (getSessionData.session.sessionCount < 1) {
+    return redirect('/assesment')
+  }
+
   console.log(getSessionData)
 
   return (
@@ -40,7 +49,7 @@ export default async function DashboardPage() {
           overallImprovement={getSessionData.session.improvementPercent}
           stressDown={getSessionData.session.avgLast7Score}
         />
-        <VoiceJournal data={getSessionData.session.last3Summaries}  />
+        <VoiceJournal data={getSessionData.session.last3Summaries} />
         <WellnessChecklist checklist={getSessionData.session.wellnessChecklist} />
         <RecommendationsGrid recommendations={getSessionData.session.aiRecommendations} />
         <WellnessInsights
