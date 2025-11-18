@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+'use client'
+import React, { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -9,11 +9,13 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Menu } from "lucide-react";
+} from '@/components/ui/drawer'
+import { Menu } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 const MobileHeader = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <Drawer open={open} onOpenChange={setOpen} direction="left">
@@ -28,6 +30,7 @@ const MobileHeader = () => {
         <DrawerFooter>
           <Button
             className="bg-[#FDF2E9] w-full text-green-800 font-semibold rounded-xl shadow-md hover:shadow-lg hover:bg-green-100 transition-all"
+            onClick={() => router.push('/sign-in')}
           >
             Login
           </Button>
@@ -37,7 +40,7 @@ const MobileHeader = () => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  );
-};
+  )
+}
 
-export default MobileHeader;
+export default MobileHeader
