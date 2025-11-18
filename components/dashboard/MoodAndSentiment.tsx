@@ -1,8 +1,12 @@
-import { emotionData } from '@/constant'
 import MoodChart from './MoodChart'
 import CardWrapper from './CardWrapper'
 
-const MoodAndSentiment = () => {
+const MoodAndSentiment = ({ negative, neutral, positive }: MoodPercentages) => {
+  const emotionData = [
+    { name: 'Positive', value: positive, color: '#1F3B2C' },
+    { name: 'Neutral', value: neutral, color: '#E6F1F0' },
+    { name: 'Negative', value: negative, color: '#FDF2E9' },
+  ]
   return (
     <CardWrapper
       title="Emotion Breakdown"

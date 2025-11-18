@@ -38,7 +38,7 @@ Analyze the conversation carefully and generate a **JSON response only**, follow
   "stressDownPercent": number (0–100),
   "wellnessChecklist": [
     "short English actionable wellness tip 1",
-    "short English actionable wellness tip 2",
+    "short English actionable wellness tip 2",  
     "short English actionable wellness tip 3"
   ],
   "aiRecommendations": [

@@ -1,8 +1,13 @@
 'use client'
-import { topicData } from '@/constant'
+
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
-const Insights = () => {
+const Insights = ({ topicDistribution }: { topicDistribution: TopicDistribution[] }) => {
+  const topicData = topicDistribution.map((item) => ({
+    name: item.topic,
+    value: item.percentage,
+  }))
+
   return (
     <ResponsiveContainer width="100%" height={200}>
       <BarChart data={topicData}>

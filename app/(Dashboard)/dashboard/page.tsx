@@ -8,29 +8,47 @@ import SessionSummary from '@/components/dashboard/SessionSummary'
 import VoiceJournal from '@/components/dashboard/VoiceJournal'
 import WellnessChecklist from '@/components/dashboard/WellnessChecklist'
 import WellnessInsights from '@/components/dashboard/WellnessInsights'
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
+import { getSignInUser } from '@/lib/auth'
 
 export default async function DashboardPage() {
-  const session = await getServerSession()
+  const user = await getSignInUser()
+  if (!user) return null
 
-  if (!session || !session.user) {
-    redirect('/sign-in')
-  }
+  const getSession = await fetch(`${process.env.NEXTAUTH_URL}/api/session/${user?._id.toString()}`)
+  const getSessionData: SessionResponse = await getSession.json()
+  console.log(getSessionData)
 
   return (
-    <main className='min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-8'>
-      <div className='max-w-7xl mx-auto grid grid-cols-2 gap-6 w-full'>
-        <GreetingSection image={session.user.image || ''} username={session.user.name || ''}  />
+    <main className="min-h-screen bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6 w-full">
+        <GreetingSection
+          image={user?.image || ''}
+          username={user?.name || ''}
+          sessionCount={getSessionData.session.sessionCount}
+          streak={getSessionData.session.streak}
+        />
         <BottomActionBar />
-        <SessionSummary />
-        <MoodAndSentiment />
+        <SessionSummary
+          summary={getSessionData.session.summary}
+          todayMood={getSessionData.session.todayMood}
+        />
+        <MoodAndSentiment {...getSessionData.session.moodPercentages} />
         <GoalsAndProgress />
-        <MoodProgressChart />
-        <VoiceJournal />
-        <WellnessChecklist />
-        <RecommendationsGrid />
-        <WellnessInsights />
+        <MoodProgressChart
+          AverageScore={getSessionData.session.emotionScore}
+          last3Summaries={[]}
+          overallImprovement={getSessionData.session.improvementPercent}
+          stressDown={getSessionData.session.avgLast7Score}
+        />
+        <VoiceJournal data={getSessionData.session.last3Summaries}  />
+        <WellnessChecklist checklist={getSessionData.session.wellnessChecklist} />
+        <RecommendationsGrid recommendations={getSessionData.session.aiRecommendations} />
+        <WellnessInsights
+          durationMinutes={getSessionData.session.durationMinutes}
+          mostDiscussedTopic={getSessionData.session.mostDiscussedTopic}
+          topWords={getSessionData.session.topWords}
+          topicDiustribution={getSessionData.session.topicDistribution}
+        />
       </div>
     </main>
   )

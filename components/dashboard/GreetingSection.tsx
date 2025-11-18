@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import CardWrapper from './CardWrapper'
 
-const GreetingSection = ({ image, username }: greetingsProps) => {
+const GreetingSection = ({ image, username, sessionCount, streak }: greetingsProps) => {
   return (
     <CardWrapper
       title={`Welcome, ${username}`}
@@ -10,12 +10,12 @@ const GreetingSection = ({ image, username }: greetingsProps) => {
     >
       <div className="flex items-center gap-8 text-sm text-muted-foreground">
         <div>
-          <p className="font-semibold text-foreground">5-day streak</p>
+          <p className="font-semibold text-foreground">{streak}-day streak</p>
           <p className="text-xs text-gray-400">Keep it going!</p>
         </div>
         <div className="h-12 w-px bg-border"></div>
         <div>
-          <p className="font-semibold text-foreground">6 sessions</p>
+          <p className="font-semibold text-foreground">{sessionCount} sessions</p>
           <p className="text-xs text-gray-400">Completed</p>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { recommendations } from '@/constant'
 import CardWrapper from './CardWrapper'
 
-const RecommendationsGrid = () => {
+const RecommendationsGrid = ({ recommendations }: { recommendations: AIRecommendation[] }) => {
   return (
     <CardWrapper
       title="AI Recommendations"
@@ -12,10 +11,10 @@ const RecommendationsGrid = () => {
         cardContent: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4',
       }}
     >
-      {recommendations.map((rec) => {
+      {recommendations.map((rec, index) => {
         return (
           <Card
-            key={rec.id}
+            key={index}
             className="bg-linear-to-br from-[#E6F1F0] via-[#F3F7F5] to-[#E6F1F0] border border-[#E6F1F0] shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
           >
             <CardContent className="flex flex-col gap-1">

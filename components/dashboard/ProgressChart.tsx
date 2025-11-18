@@ -1,5 +1,4 @@
 'use client'
-import { weekData } from '@/constant'
 import {
   XAxis,
   YAxis,
@@ -10,7 +9,7 @@ import {
   Area,
 } from 'recharts'
 
-const ProgressChart = () => {
+const ProgressChart = ({ weekData }: { weekData: weekDataProps[] }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <AreaChart data={weekData}>
